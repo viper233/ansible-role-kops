@@ -1,0 +1,16 @@
+---
+# tasks file for dosullivan.kops
+- name: Download kops
+  get_url:
+    url: https://github.com/kubernetes/kops/releases/download/v{{ kops_version }}/kops-linux-amd64
+    dest: /tmp/kops_{{ kops_version }}-linux-amd64
+
+- name: move kops to /usr/local/bin dir
+  command: mv /tmp/kops_{{ kops_version }}-linux-amd64 /usr/local/bin/kops
+
+- name: make kops executable
+  file:
+    path: /usr/local/bin/kops
+    owner: root
+    group: root
+    mode: 0755

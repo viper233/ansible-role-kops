@@ -1,0 +1,3 @@
+---
+# defaults file for dosullivan.kops
+kops_version: "1.4.4"
